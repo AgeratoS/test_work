@@ -9,7 +9,7 @@ const Input = styled.input`
   border-bottom: 5px solid ${({ theme }) => theme.primary};
   padding: 1rem 1.5rem;
   font-size: 1.125rem;
-  color: ${({ theme }) => theme.secondary};
+  color: ${({ theme }) => theme.accent};
   outline: none;
 `
 

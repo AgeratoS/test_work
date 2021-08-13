@@ -12,16 +12,19 @@ import {
 const Auth: React.FC<AuthProps> = ({ onSubmit }) => {
 
     const methods = useFormContext<AuthData>();
+    const { formState: { errors }} = methods;
 
     return (
         <div>
             <Header>Login</Header>
             <Form onSubmit={methods.handleSubmit(onSubmit)}>
                 <InputBlock>
-                    <Input {...methods.register("login")}/>
+                    <Input {...methods.register("login")} />
+                    {errors?.login?.message}
                 </InputBlock>
                 <InputBlock>
-                    <Input type={"password"} {...methods.register("password")}/>
+                    <Input {...methods.register("password")} />
+                    {errors?.password?.message}
                 </InputBlock>
                 <Button>Log in</Button>
             </Form>

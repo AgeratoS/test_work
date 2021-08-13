@@ -2,6 +2,6 @@ import * as yup from "yup";
 
 
 export const validationSchema = yup.object().shape({
-    email: yup.string().email().required(),
-    password: yup.string().min(6).required()
+    login: yup.string().email("Must be valid format").required("It's required value"),
+    password: yup.string().min(6, "Password must have at least 6 symbols").required("It's required value")
 })

@@ -11,6 +11,7 @@ import {
 
 const SignIn: React.FC<SignInProps> = ({ onSubmit }) => {
     const methods = useFormContext<SignInData>();
+    const { formState: { errors }} = methods;
 
     return (
         <div>
@@ -18,12 +19,15 @@ const SignIn: React.FC<SignInProps> = ({ onSubmit }) => {
             <Form onSubmit={methods.handleSubmit(onSubmit)}>
                 <InputBlock>
                     <Input {...methods.register("login")}/>
+                    {errors?.login?.message}
                 </InputBlock>
                 <InputBlock>
                     <Input {...methods.register("email")}/>
+                    {errors?.email?.message}
                 </InputBlock>
                 <InputBlock>
                     <Input type="password" {...methods.register("password")}/>
+                    {errors?.password?.message}
                 </InputBlock>
                 <Button type="submit">Sign in</Button>
             </Form>
