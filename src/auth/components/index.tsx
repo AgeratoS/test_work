@@ -1,15 +1,22 @@
 import React from "react";
-import { LoginProps } from "../types";
-import { Header, Input } from "../../common/components";
+import { useFormContext } from "react-hook-form";
+import { AuthData, AuthProps } from "../types";
+import { Button, Header, Input } from "../../common/components";
 
-const Login: React.FC<LoginProps> = ({ email, password }) => (
-    <div>
-        <Header>Login</Header>
-        <form action="">
-            <Input name="email" value={email}/>
-            <Input name="password" value={password} type={"password"}/>
-        </form>
-    </div>
-)
+const Auth: React.FC<AuthProps> = ({ onSubmit }) => {
 
-export default Login;
+    const methods = useFormContext<AuthData>();
+
+    return (
+        <div>
+            <Header>Login</Header>
+            <form onSubmit={methods.handleSubmit(onSubmit)}>
+                <Input {...methods.register("email")}/>
+                <Input type={"password"} {...methods.register("password")}/>
+                <Button>Log in</Button>
+            </form>
+        </div>
+    );
+}
+
+export default Auth;
