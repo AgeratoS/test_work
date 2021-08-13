@@ -1,10 +1,11 @@
 import { FormProvider, useForm } from "react-hook-form";
 import AuthView from "../components";
 import { AuthData } from "../types";
+import {loginUser} from "../../common/api";
 
 const Auth = () => {
     const methods = useForm();
-    const onSubmit = (values: AuthData) => console.log(values)
+    const onSubmit = (values: AuthData) => loginUser(values).then(console.log)
 
     return (
         <FormProvider {...methods}>

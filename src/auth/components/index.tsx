@@ -11,7 +11,7 @@ const Auth: React.FC<AuthProps> = ({ onSubmit }) => {
         <div>
             <Header>Login</Header>
             <form onSubmit={methods.handleSubmit(onSubmit)}>
-                <Input {...methods.register("email")}/>
+                <Input {...methods.register("login")}/>
                 <Input type={"password"} {...methods.register("password")}/>
                 <Button>Log in</Button>
             </form>
