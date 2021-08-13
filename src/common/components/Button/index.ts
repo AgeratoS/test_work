@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-const Input = styled.input`
+const Button = styled.button`
+  padding: 1rem 1.5rem;
   font-family: 'Libertad', sans-serif;
 `
 
-export default Input;
+export default Button;

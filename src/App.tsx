@@ -1,11 +1,16 @@
 import React from "react";
 import "./App.css";
-import SignIn from "./signin/components";
+import SignIn from "./signin/containers";
+import { ThemeProvider } from "styled-components";
+import GlobalStyle, { theme } from "./common/theme";
 
 function App() {
   return (
     <div className="App">
-      <SignIn />
+        <ThemeProvider theme={theme}>
+            <GlobalStyle />
+            <SignIn />
+        </ThemeProvider>
     </div>
   );
 }
