@@ -1,7 +1,13 @@
 import React from "react";
 import {useFormContext} from "react-hook-form";
 import {SignInData, SignInProps} from "../types";
-import { Header, Input, Button } from "../../common/components";
+import {
+    Header,
+    Input,
+    Button,
+    InputBlock,
+    Form
+} from "../../common/components";
 
 const SignIn: React.FC<SignInProps> = ({ onSubmit }) => {
     const methods = useFormContext<SignInData>();
@@ -9,12 +15,18 @@ const SignIn: React.FC<SignInProps> = ({ onSubmit }) => {
     return (
         <div>
             <Header>Sign in</Header>
-            <form onSubmit={methods.handleSubmit(onSubmit)}>
-                <Input {...methods.register("login")}/>
-                <Input {...methods.register("email")}/>
-                <Input type="password" {...methods.register("password")}/>
+            <Form onSubmit={methods.handleSubmit(onSubmit)}>
+                <InputBlock>
+                    <Input {...methods.register("login")}/>
+                </InputBlock>
+                <InputBlock>
+                    <Input {...methods.register("email")}/>
+                </InputBlock>
+                <InputBlock>
+                    <Input type="password" {...methods.register("password")}/>
+                </InputBlock>
                 <Button type="submit">Sign in</Button>
-            </form>
+            </Form>
         </div>
     );
 }

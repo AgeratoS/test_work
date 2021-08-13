@@ -3,7 +3,9 @@ import libertad from "../assets/fonts/Libertad/Libertad.woff";
 import libertadwf2 from "../assets/fonts/Libertad/Libertad.woff2";
 
 export const theme = {
-
+    primary: "#355070",
+    accent: "#eaac8b",
+    secondary: "#b56576"
 }
 
 const GlobalStyle = createGlobalStyle`

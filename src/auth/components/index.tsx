@@ -1,7 +1,13 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
 import { AuthData, AuthProps } from "../types";
-import { Button, Header, Input } from "../../common/components";
+import {
+    Button,
+    Header,
+    Input,
+    InputBlock,
+    Form
+} from "../../common/components";
 
 const Auth: React.FC<AuthProps> = ({ onSubmit }) => {
 
@@ -10,11 +16,15 @@ const Auth: React.FC<AuthProps> = ({ onSubmit }) => {
     return (
         <div>
             <Header>Login</Header>
-            <form onSubmit={methods.handleSubmit(onSubmit)}>
-                <Input {...methods.register("login")}/>
-                <Input type={"password"} {...methods.register("password")}/>
+            <Form onSubmit={methods.handleSubmit(onSubmit)}>
+                <InputBlock>
+                    <Input {...methods.register("login")}/>
+                </InputBlock>
+                <InputBlock>
+                    <Input type={"password"} {...methods.register("password")}/>
+                </InputBlock>
                 <Button>Log in</Button>
-            </form>
+            </Form>
         </div>
     );
 }
